@@ -20,17 +20,17 @@ public class TreatmentRow implements Serializable {
     private String id;//id
     private String disease_name;//病症名称
     @Indexed
-    private String patient_id;//病人id
+    private String patient_id_number;//病人身份证号
     private long start_time;//就诊开始日期
     @Indexed
     private long end_time;//就诊结束日期
     private String medicines_record;//用药记录
     private Object extra_meta;//其他信息
 
-    public TreatmentRow(String id, String disease_name, String patient_id, long start_time, long end_time, String medicines_record, Object extra_meta) {
+    public TreatmentRow(String id, String disease_name, String patient_id_number, long start_time, long end_time, String medicines_record, Object extra_meta) {
         this.id = id;
         this.disease_name = disease_name;
-        this.patient_id = patient_id;
+        this.patient_id_number = patient_id_number;
         this.start_time = start_time;
         this.end_time = end_time;
         this.medicines_record = medicines_record;
@@ -42,6 +42,6 @@ public class TreatmentRow implements Serializable {
 
     @Override
     public String toString() {
-        return "TreatmentRow{" + "id='" + id + '\'' + ", disease_name='" + disease_name + '\'' + ", patient_id='" + patient_id + '\'' + ", start_time=" + start_time + ", end_time=" + end_time + ", medicines_record='" + medicines_record + '\'' + ", extra_meta=" + extra_meta + '}';
+        return "TreatmentRow{" + "id='" + id + '\'' + ", disease_name='" + disease_name + '\'' + ", patient_id_number='" + patient_id_number + '\'' + ", start_time=" + start_time + ", end_time=" + end_time + ", medicines_record='" + medicines_record + '\'' + ", extra_meta=" + extra_meta + '}';
     }
 }

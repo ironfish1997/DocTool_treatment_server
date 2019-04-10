@@ -46,8 +46,8 @@ public class TreatmentRecordOperationService {
             return null;
         }
         //如果当前病人记录里没有这个病人id，不插入该就诊记录
-        String patient_id = treatmentRow.getPatient_id();
-        if (tempPatientService.findPatientById(patient_id) == null) {
+        String patient_id_number = treatmentRow.getPatient_id_number();
+        if (tempPatientService.findPatientByIdNumber(patient_id_number) == null) {
             return null;
         }
         //计算时间
@@ -80,8 +80,8 @@ public class TreatmentRecordOperationService {
         if (ori_treatmentRow == null) {
             return null;
         }
-        if (updateTreatmentRow.getPatient_id() != null) {
-            ori_treatmentRow.setPatient_id(updateTreatmentRow.getPatient_id());
+        if (updateTreatmentRow.getPatient_id_number() != null) {
+            ori_treatmentRow.setPatient_id_number(updateTreatmentRow.getPatient_id_number());
         }
         if (updateTreatmentRow.getDisease_name() != null) {
             ori_treatmentRow.setDisease_name(updateTreatmentRow.getDisease_name());

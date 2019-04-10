@@ -36,12 +36,12 @@ public class Patient extends User {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(id, patient.id);
+        return Objects.equals(id_number, patient.id_number);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id);
+        return Objects.hash(super.hashCode(), id_number);
     }
 
     @Override
