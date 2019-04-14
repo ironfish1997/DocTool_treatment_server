@@ -9,7 +9,6 @@ spring:
 server:
   tomcat:
     uri-encoding: utf-8
-  port: 8082
 sso:
   redis:
     address: redis://myRedis:123456@127.0.0.1:6379
