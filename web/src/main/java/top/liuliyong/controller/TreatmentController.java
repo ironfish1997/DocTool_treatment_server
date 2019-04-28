@@ -4,7 +4,6 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import top.liuliyong.common.exception.OperationException;
 import top.liuliyong.common.model.TreatmentRow;
 import top.liuliyong.common.response.OperationResponse;
 import top.liuliyong.common.status.StatusEnum;
@@ -97,27 +96,27 @@ public class TreatmentController {
     }
 
     /**
-     * 通过patient_id查询就诊记录
+     * 通过身份证查询就诊记录
      *
-     * @param patient_id
+     * @param patient_id_number
      * @return
      */
     @GetMapping("/getTreatmentsByPatientId")
-    public OperationResponse getTreatmentsByPatientId(@RequestParam("patient_id") String patient_id) {
-        List<TreatmentRow> res = treatmentRecordOperationService.findTreatmentRowsByPatientId(patient_id);
+    public OperationResponse getTreatmentsByPatientIdNumber(@RequestParam("patient_id_number") String patient_id_number) {
+        List<TreatmentRow> res = treatmentRecordOperationService.findTreatmentRowsByPatientIdNumber(patient_id_number);
         return getOperationResponse(res, StatusEnum.FIND_TREATMENT_FAILED);
     }
 
 
     private OperationResponse getOperationResponse(Object res, StatusEnum treatmentrecordFailed) {
-        if (res == null) {
-            throw new OperationException(treatmentrecordFailed);
-        }
-        if (res instanceof List) {
-            if (((List) res).size() == 0) {
-                throw new OperationException(treatmentrecordFailed);
-            }
-        }
+//        if (res == null) {
+//            throw new OperationException(treatmentrecordFailed);
+//        }
+//        if (res instanceof List) {
+//            if (((List) res).size() == 0) {
+//                throw new OperationException(treatmentrecordFailed);
+//            }
+//        }
         return new OperationResponse(0, "ok", res);
     }
 }

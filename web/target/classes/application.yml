@@ -3,13 +3,12 @@ logging:
 spring:
   data:
     mongodb:
-      uri: mongodb://DocTool:123456@localhost:27019/DocTool
+      uri: mongodb://DocTool:123456@localhost:27017/DocTool
   application:
     name: treatmentService
 server:
   tomcat:
     uri-encoding: utf-8
-  port: 8082
 sso:
   redis:
     address: redis://myRedis:123456@127.0.0.1:6379

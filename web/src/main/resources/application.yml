@@ -3,7 +3,7 @@ logging:
 spring:
   data:
     mongodb:
-      uri: mongodb://DocTool:123456@localhost:27019/DocTool
+      uri: mongodb://DocTool:123456@localhost:27017/DocTool
   application:
     name: treatmentService
 server:
