@@ -79,7 +79,7 @@ public class TreatmentRowDao extends AbstractUserDao<TreatmentRow> {
      * @return
      */
     public List<TreatmentRow> findTreatmentRowsByPatientId(String patientId) {
-        return mongoTemplate.find(query(where("patient_id").is(patientId)), getEntityClass(), getCollection());
+        return mongoTemplate.find(query(where("patient_id_number").is(patientId)), getEntityClass(), getCollection());
     }
 
     /**
