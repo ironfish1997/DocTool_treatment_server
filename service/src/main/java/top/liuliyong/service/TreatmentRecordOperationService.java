@@ -145,7 +145,7 @@ public class TreatmentRecordOperationService {
      * @param patientId
      * @return
      */
-    public List<TreatmentRow> findTreatmentRowsByPatientId(String patientId) {
+    public List<TreatmentRow> findTreatmentRowsByPatientIdNumber(String patientId) {
         if (patientId == null || patientId.trim().length() == 0) {
             return null;
         }

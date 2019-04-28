@@ -24,7 +24,7 @@ public class TreatmentRecordOperationServiceTest {
 
     @Test
     public void updateTreatmentRow() {
-        TreatmentRow treatmentRow = treatmentRecordOperationService.findTreatmentRowsByPatientId("5ca32c2d0bee6b192178dc2e").get(0);
+        TreatmentRow treatmentRow = treatmentRecordOperationService.findTreatmentRowsByPatientIdNumber("5ca32c2d0bee6b192178dc2e").get(0);
         treatmentRow.setMedicines_record("修改了药物记录");
         TreatmentRow updatedRow = treatmentRecordOperationService.updateTreatmentRow(treatmentRow);
         Assert.assertEquals(updatedRow, treatmentRow);
