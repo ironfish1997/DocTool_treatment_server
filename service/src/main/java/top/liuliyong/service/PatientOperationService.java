@@ -1,7 +1,6 @@
 package top.liuliyong.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import top.liuliyong.common.exception.OperationException;
@@ -20,11 +19,14 @@ import java.util.List;
 @Service
 @Slf4j
 public class PatientOperationService {
-    @Autowired
-    private PatientUserDao patientUserDao;
+    private final PatientUserDao patientUserDao;
 
-    @Autowired
-    private TreatmentRowDao treatmentRowDao;
+    private final TreatmentRowDao treatmentRowDao;
+
+    public PatientOperationService(PatientUserDao patientUserDao, TreatmentRowDao treatmentRowDao) {
+        this.patientUserDao = patientUserDao;
+        this.treatmentRowDao = treatmentRowDao;
+    }
 
     /**
      * 新增病人
