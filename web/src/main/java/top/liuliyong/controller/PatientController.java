@@ -4,7 +4,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import top.liuliyong.common.exception.OperationException;
@@ -24,8 +23,11 @@ import java.util.List;
 @Validated
 @Api(value = "PatientOperation", description = "病人操作")
 public class PatientController {
-    @Autowired
-    private PatientOperationService patientOperationService;
+    private final PatientOperationService patientOperationService;
+
+    public PatientController(PatientOperationService patientOperationService) {
+        this.patientOperationService = patientOperationService;
+    }
 
     /**
      * 通过patient_id查询病人信息
