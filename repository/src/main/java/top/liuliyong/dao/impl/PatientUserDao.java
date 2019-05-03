@@ -38,7 +38,7 @@ public class PatientUserDao extends AbstractUserDao<Patient> {
         for (String id : ids) {
             ids_obj.add(new ObjectId(id));
         }
-        List<Patient> patient = mongoTemplate.findAllAndRemove(query(where("_id").in(ids_obj)), getEntityClass());
+        List<Patient> patient = mongoTemplate.findAllAndRemove(query(where("_id").in(ids_obj)), Patient.class);
         assert patient != null;
         return patient;
     }
@@ -66,7 +66,7 @@ public class PatientUserDao extends AbstractUserDao<Patient> {
      * 更新病人信息
      *
      * @param renewPatient
-     * @return
+     * @return Patient
      */
     public Patient updatePatient(Patient renewPatient) {
         return update(renewPatient);
@@ -87,7 +87,7 @@ public class PatientUserDao extends AbstractUserDao<Patient> {
      * 根据病人身份证号查询病人信息
      */
     public Patient findOnePatientByIdNumber(String id_number) {
-        return (Patient) mongoTemplate.findOne(query(where("id_number").is(id_number)), getEntityClass(), getCollection());
+        return mongoTemplate.findOne(query(where("id_number").is(id_number)), Patient.class, getCollection());
     }
 
 

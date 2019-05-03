@@ -1,6 +1,7 @@
 package top.liuliyong.common.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,14 +15,12 @@ import java.util.Objects;
 
 @Document(collection = "patients")
 @Data
+@NoArgsConstructor
 public class Patient extends User {
     public Patient(String id, String id_number, String[] special_disease, String name, String area, Contacts contacts, Object extra_meta) {
         super(id, name, area, contacts, extra_meta);
         this.id_number = id_number;
         this.special_disease = special_disease;
-    }
-
-    public Patient() {
     }
 
     @Indexed
