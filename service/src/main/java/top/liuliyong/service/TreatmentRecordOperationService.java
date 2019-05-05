@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.liuliyong.common.model.TreatmentRow;
 import top.liuliyong.common.util.NumberSystemUtil;
-import top.liuliyong.dao.impl.TreatmentRowDao;
+import top.liuliyong.dao.impl.TreatmentDaoImpl;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -18,13 +18,13 @@ import java.util.List;
 @Slf4j
 public class TreatmentRecordOperationService {
 
-    private final TreatmentRowDao treatmentRowDao;
+    private final TreatmentDaoImpl treatmentRowDao;
 
     @Autowired
     private PatientOperationService tempPatientService;
 
     @Autowired
-    public TreatmentRecordOperationService(TreatmentRowDao treatmentRowDao) {
+    public TreatmentRecordOperationService(TreatmentDaoImpl treatmentRowDao) {
         this.treatmentRowDao = treatmentRowDao;
     }
 
@@ -76,7 +76,7 @@ public class TreatmentRecordOperationService {
      * @return
      */
     public TreatmentRow updateTreatmentRow(TreatmentRow updateTreatmentRow) {
-        TreatmentRow ori_treatmentRow = treatmentRowDao.findTreatmentRowById(updateTreatmentRow.getId());
+        TreatmentRow ori_treatmentRow = treatmentRowDao.findRowById(updateTreatmentRow.getId());
         if (ori_treatmentRow == null) {
             return null;
         }
@@ -149,7 +149,7 @@ public class TreatmentRecordOperationService {
         if (patientId == null || patientId.trim().length() == 0) {
             return null;
         }
-        return treatmentRowDao.findTreatmentRowsByPatientId(patientId);
+        return treatmentRowDao.findRowsByPatientId(patientId);
     }
 
     /**

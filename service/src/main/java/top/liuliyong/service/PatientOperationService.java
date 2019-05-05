@@ -7,9 +7,10 @@ import top.liuliyong.common.exception.OperationException;
 import top.liuliyong.common.model.Patient;
 import top.liuliyong.common.status.StatusEnum;
 import top.liuliyong.common.util.NumberSystemUtil;
-import top.liuliyong.dao.impl.PatientUserDao;
-import top.liuliyong.dao.impl.TreatmentRowDao;
+import top.liuliyong.dao.PatientDao;
+import top.liuliyong.dao.TreatmentDao;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,14 +20,11 @@ import java.util.List;
 @Service
 @Slf4j
 public class PatientOperationService {
-    private final PatientUserDao patientUserDao;
+    @Resource(name = "patientDaoImpl")
+    private PatientDao patientDao;
+    @Resource(name = "treatmentDaoImpl")
+    private TreatmentDao treatmentRowDao;
 
-    private final TreatmentRowDao treatmentRowDao;
-
-    public PatientOperationService(PatientUserDao patientUserDao, TreatmentRowDao treatmentRowDao) {
-        this.patientUserDao = patientUserDao;
-        this.treatmentRowDao = treatmentRowDao;
-    }
 
     /**
      * 新增病人
@@ -45,9 +43,9 @@ public class PatientOperationService {
             throw new OperationException(StatusEnum.WRONG_ID_FORMAT);
         }
         //通过身份证号检索当前数据库中有没有已存在的病人
-        Patient oriPatient = patientUserDao.findOnePatientByIdNumber(patient.getId_number());
+        Patient oriPatient = patientDao.findPatientByIdNumber(patient.getId_number());
         if (oriPatient == null) {
-            Patient resPat = patientUserDao.<Patient>save(patient);
+            Patient resPat = patientDao.<Patient>save(patient);
             log.info("新增病人请求：成功新增病人记录===>", resPat);
             return resPat;
         } else {
@@ -68,7 +66,7 @@ public class PatientOperationService {
             throw new OperationException(StatusEnum.LACK_OF_INFORMATION);
         }
         //查出病人的原始信息
-        Patient oriPatient = patientUserDao.findOnePatientById(updatedInfo.getId());
+        Patient oriPatient = patientDao.findPatientById(updatedInfo.getId());
         if (oriPatient == null) {
             log.warn("更新病人请求：找不到病人信息,id===>", updatedInfo.getId());
             //找不到病人信息
@@ -91,8 +89,8 @@ public class PatientOperationService {
         if (updatedInfo.getName() != null && updatedInfo.getName().trim().length() != 0) {
             oriPatient.setName(updatedInfo.getName());
         }
-        patientUserDao.updatePatient(oriPatient);
-        Patient resPat = patientUserDao.findOnePatientById(oriPatient.getId());
+        patientDao.updatePatient(oriPatient);
+        Patient resPat = patientDao.findPatientById(oriPatient.getId());
         log.info("更新病人记录请求：成功更新病人记录===>", resPat);
         return resPat;
     }
@@ -125,7 +123,7 @@ public class PatientOperationService {
                 return null;
             }
         }
-        List<Patient> patientList = patientUserDao.deletePatient(ids);
+        List<Patient> patientList = patientDao.deleteByPatientId(ids);
         if (patientList == null || patientList.size() == 0) {
             throw new OperationException(StatusEnum.NOT_FOUNT_PATINET);
         }
@@ -147,7 +145,7 @@ public class PatientOperationService {
         if (!NumberSystemUtil.checkHex(id, NumberSystemUtil.MONGO_ID_FORMAT)) {
             return null;
         }
-        Patient resPat = patientUserDao.findOnePatientById(id);
+        Patient resPat = patientDao.findPatientById(id);
         if (resPat == null) {
             return null;
         }
@@ -164,7 +162,7 @@ public class PatientOperationService {
         if (StringUtils.isEmpty(id_number)) {
             return null;
         }
-        Patient resPat = patientUserDao.findOnePatientByIdNumber(id_number);
+        Patient resPat = patientDao.findPatientByIdNumber(id_number);
         if (resPat == null) {
             return null;
         }
@@ -178,7 +176,7 @@ public class PatientOperationService {
      * @return
      */
     public List<Patient> findAll() {
-        Iterable patientList = patientUserDao.findAll();
+        Iterable patientList = patientDao.findAll();
         List<Patient> result = null;
         if (patientList instanceof List) {
             result = (List<Patient>) patientList;
