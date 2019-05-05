@@ -3,10 +3,10 @@ package top.liuliyong.dao.impl;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 import top.liuliyong.common.model.Patient;
+import top.liuliyong.dao.PatientDao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -15,8 +15,8 @@ import static org.springframework.data.mongodb.core.query.Query.query;
  * @Author liyong.liu
  * @Date 2019/3/12
  **/
-@Repository
-public class PatientUserDao extends AbstractUserDao<Patient> {
+@Repository("patientDaoImpl")
+public class PatientDaoImpl extends AbstractUserDao<Patient> implements PatientDao {
 
     @Override
     protected Class getEntityClass() {
@@ -58,7 +58,8 @@ public class PatientUserDao extends AbstractUserDao<Patient> {
      * @param ids
      * @return
      */
-    public List deletePatient(String... ids) {
+    @Override
+    public List deleteByPatientId(String... ids) {
         return delete(ids);
     }
 
@@ -68,6 +69,7 @@ public class PatientUserDao extends AbstractUserDao<Patient> {
      * @param renewPatient
      * @return Patient
      */
+    @Override
     public Patient updatePatient(Patient renewPatient) {
         return update(renewPatient);
     }
@@ -78,17 +80,16 @@ public class PatientUserDao extends AbstractUserDao<Patient> {
      * @param id
      * @return
      */
-    public Patient findOnePatientById(String id) {
-        Optional<Patient> resOpt = findById(id);
-        return resOpt.orElse(null);
+    @Override
+    public Patient findPatientById(String id) {
+        return super.findById(id).orElse(null);
     }
 
     /**
      * 根据病人身份证号查询病人信息
      */
-    public Patient findOnePatientByIdNumber(String id_number) {
+    @Override
+    public Patient findPatientByIdNumber(String id_number) {
         return mongoTemplate.findOne(query(where("id_number").is(id_number)), Patient.class, getCollection());
     }
-
-
 }
