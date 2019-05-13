@@ -1,7 +1,7 @@
-package top.liuliyong.common.response;
+package top.liuliyong.treatmentServer.common.response;
 
 import lombok.Data;
-import top.liuliyong.common.status.StatusEnum;
+import top.liuliyong.treatmentServer.common.status.StatusEnum;
 
 import java.io.Serializable;
 

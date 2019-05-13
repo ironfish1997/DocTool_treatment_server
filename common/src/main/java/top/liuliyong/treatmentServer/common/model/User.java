@@ -1,4 +1,4 @@
-package top.liuliyong.common.model;
+package top.liuliyong.treatmentServer.common.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

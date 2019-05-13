@@ -1,11 +1,11 @@
-package top.liuliyong.common.exception;
+package top.liuliyong.treatmentServer.common.exception;
 
 /**
  * @Author liyong.liu
  * @Date 2019/3/30
  **/
 
-import top.liuliyong.common.status.StatusEnum;
+import top.liuliyong.treatmentServer.common.status.StatusEnum;
 
 /**
  * 抛出自定义异常

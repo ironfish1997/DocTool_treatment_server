@@ -1,4 +1,4 @@
-package top.liuliyong.common.status;
+package top.liuliyong.treatmentServer.common.status;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package top.liuliyong.common.config;
+package top.liuliyong.treatmentServer.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

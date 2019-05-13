@@ -1,4 +1,4 @@
-package top.liuliyong.common.util;
+package top.liuliyong.treatmentServer.common.util;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

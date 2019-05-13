@@ -1,4 +1,4 @@
-package top.liuliyong.common.util;
+package top.liuliyong.treatmentServer.common.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

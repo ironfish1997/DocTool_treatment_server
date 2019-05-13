@@ -1,10 +1,10 @@
-package top.liuliyong.common.model.builder;
+package top.liuliyong.treatmentServer.common.model.builder;
 
 
-import top.liuliyong.common.exception.OperationException;
-import top.liuliyong.common.model.Contacts;
-import top.liuliyong.common.model.Patient;
-import top.liuliyong.common.status.StatusEnum;
+import top.liuliyong.treatmentServer.common.exception.OperationException;
+import top.liuliyong.treatmentServer.common.model.Contacts;
+import top.liuliyong.treatmentServer.common.model.Patient;
+import top.liuliyong.treatmentServer.common.status.StatusEnum;
 
 /**
  * @Author liyong.liu

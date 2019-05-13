@@ -1,4 +1,4 @@
-package top.liuliyong.common.util;
+package top.liuliyong.treatmentServer.common.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
