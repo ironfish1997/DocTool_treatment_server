@@ -1,10 +1,10 @@
-package top.liuliyong.dao.impl;
+package top.liuliyong.treatmentServer.repository.dao.impl;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.keyvalue.core.IterableConverter;
 import org.springframework.stereotype.Repository;
-import top.liuliyong.common.model.TreatmentRow;
-import top.liuliyong.dao.TreatmentDao;
+import top.liuliyong.treatmentServer.common.model.TreatmentRow;
+import top.liuliyong.treatmentServer.repository.dao.TreatmentDao;
 
 import java.util.List;
 import java.util.Optional;

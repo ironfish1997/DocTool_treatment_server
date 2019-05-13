@@ -1,11 +1,11 @@
-package top.liuliyong.dao.impl;
+package top.liuliyong.treatmentServer.repository.dao.impl;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import top.liuliyong.dao.IMongoService;
+import top.liuliyong.treatmentServer.repository.dao.IMongoService;
 
 import java.util.Optional;
 

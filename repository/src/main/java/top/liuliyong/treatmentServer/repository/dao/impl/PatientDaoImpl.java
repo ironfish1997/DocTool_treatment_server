@@ -1,9 +1,9 @@
-package top.liuliyong.dao.impl;
+package top.liuliyong.treatmentServer.repository.dao.impl;
 
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
-import top.liuliyong.common.model.Patient;
-import top.liuliyong.dao.PatientDao;
+import top.liuliyong.treatmentServer.common.model.Patient;
+import top.liuliyong.treatmentServer.repository.dao.PatientDao;
 
 import java.util.ArrayList;
 import java.util.List;

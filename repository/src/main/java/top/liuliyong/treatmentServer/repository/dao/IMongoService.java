@@ -1,4 +1,4 @@
-package top.liuliyong.dao;
+package top.liuliyong.treatmentServer.repository.dao;
 
 
 import java.util.List;

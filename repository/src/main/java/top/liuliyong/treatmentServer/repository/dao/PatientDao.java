@@ -1,6 +1,6 @@
-package top.liuliyong.dao;
+package top.liuliyong.treatmentServer.repository.dao;
 
-import top.liuliyong.common.model.Patient;
+import top.liuliyong.treatmentServer.common.model.Patient;
 
 import java.util.List;
 
