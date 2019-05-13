@@ -1,14 +1,14 @@
-package top.liuliyong.service;
+package top.liuliyong.treatmentServer.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import top.liuliyong.common.exception.OperationException;
-import top.liuliyong.common.model.Patient;
-import top.liuliyong.common.status.StatusEnum;
-import top.liuliyong.common.util.NumberSystemUtil;
-import top.liuliyong.dao.PatientDao;
-import top.liuliyong.dao.TreatmentDao;
+import top.liuliyong.treatmentServer.common.exception.OperationException;
+import top.liuliyong.treatmentServer.common.model.Patient;
+import top.liuliyong.treatmentServer.common.status.StatusEnum;
+import top.liuliyong.treatmentServer.common.util.NumberSystemUtil;
+import top.liuliyong.treatmentServer.repository.dao.PatientDao;
+import top.liuliyong.treatmentServer.repository.dao.TreatmentDao;
 
 import javax.annotation.Resource;
 import java.util.List;

@@ -1,4 +1,4 @@
-package top.liuliyong.service;
+package top.liuliyong.treatmentServer.service;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import top.liuliyong.common.model.Patient;
-import top.liuliyong.common.model.builder.PatientBuilder;
+import top.liuliyong.treatmentServer.common.model.Patient;
+import top.liuliyong.treatmentServer.common.model.builder.PatientBuilder;
 
 import java.util.List;
 
