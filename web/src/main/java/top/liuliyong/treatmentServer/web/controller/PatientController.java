@@ -1,4 +1,4 @@
-package top.liuliyong.controller;
+package top.liuliyong.treatmentServer.web.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -6,11 +6,11 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import top.liuliyong.common.exception.OperationException;
-import top.liuliyong.common.model.Patient;
-import top.liuliyong.common.response.OperationResponse;
-import top.liuliyong.common.status.StatusEnum;
-import top.liuliyong.service.PatientOperationService;
+import top.liuliyong.treatmentServer.common.exception.OperationException;
+import top.liuliyong.treatmentServer.common.model.Patient;
+import top.liuliyong.treatmentServer.common.response.OperationResponse;
+import top.liuliyong.treatmentServer.common.status.StatusEnum;
+import top.liuliyong.treatmentServer.service.PatientOperationService;
 
 import java.util.List;
 
@@ -22,6 +22,7 @@ import java.util.List;
 @RequestMapping("/patient")
 @Validated
 @Api(value = "PatientOperation", description = "病人操作")
+@CrossOrigin
 public class PatientController {
     private final PatientOperationService patientOperationService;
 

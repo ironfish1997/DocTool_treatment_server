@@ -1,13 +1,13 @@
-package top.liuliyong.controller;
+package top.liuliyong.treatmentServer.web.controller;
 
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import top.liuliyong.common.model.TreatmentRow;
-import top.liuliyong.common.response.OperationResponse;
-import top.liuliyong.common.status.StatusEnum;
-import top.liuliyong.service.TreatmentRecordOperationService;
+import top.liuliyong.treatmentServer.common.model.TreatmentRow;
+import top.liuliyong.treatmentServer.common.response.OperationResponse;
+import top.liuliyong.treatmentServer.common.status.StatusEnum;
+import top.liuliyong.treatmentServer.service.TreatmentRecordOperationService;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ import java.util.List;
 @RequestMapping("/treatment")
 @Validated
 @Api(value = "TreatmentOperation", description = "就诊记录操作")
+@CrossOrigin
 public class TreatmentController {
     @Autowired
     private TreatmentRecordOperationService treatmentRecordOperationService;
